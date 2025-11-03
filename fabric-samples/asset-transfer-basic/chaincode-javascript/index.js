@@ -6,5 +6,7 @@
 
 'use strict';
 
-const BoseChaincode = require('./boseChaincode.js');
-module.exports.contracts = [BoseChaincode];
+const BOSEChaincode = require('./lib/boseChaincode.js');
+const SkillsChaincode = require('./lib/skillChaincode.js');
+
+module.exports.contracts = [BOSEChaincode, SkillsChaincode];
