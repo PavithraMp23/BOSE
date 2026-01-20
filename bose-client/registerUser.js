@@ -1,4 +1,4 @@
-// registerUsers.js
+/*// registerUsers.js
 const enrollUser = require('./enrollUser');
 
 async function main() {
@@ -13,3 +13,4 @@ async function main() {
 }
 
 main();
+*/

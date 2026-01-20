@@ -1,3 +1,4 @@
+/*
 // enrollUser.js
 'use strict';
 
@@ -64,3 +65,4 @@ async function enrollUser(userId, role) {
 }
 
 module.exports = enrollUser;
+*/

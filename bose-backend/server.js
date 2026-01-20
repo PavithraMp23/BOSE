@@ -1,3 +1,5 @@
+/*
+
 // bose-backend/server.js
 'use strict';
 const express = require("express");
@@ -206,3 +208,43 @@ checkIdentity();
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => console.log(` BOSE Backend running on port ${PORT}`));
+*/
+'use strict';
+//swagger ui for easy api interpretation
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
+
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+
+// Routes
+const certificateRoutes = require('./routes/certificate-routes');
+const skillRoutes = require('./routes/skill-routes');
+const adminRoutes = require('./routes/admin-routes');
+
+dotenv.config();
+connectDB();
+
+const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(cors());
+//swagger-ui addition 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
+// Routes
+app.use('/api/certificate', certificateRoutes);
+app.use('/api/skill', skillRoutes);
+app.use('/api/admin', adminRoutes);
+
+// Health check (optional but useful)
+app.get('/health', (_, res) => res.json({ status: 'OK' }));
+
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, () => {
+  console.log(`BOSE Backend running on port ${PORT}`);
+});
