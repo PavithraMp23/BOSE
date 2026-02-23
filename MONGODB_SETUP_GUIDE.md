@@ -80,9 +80,7 @@ Could not connect to any servers in your MongoDB Atlas cluster
 2. Verify user **"admin"** exists
 3. If password is incorrect, click **"Edit"** → **"Edit Password"** → Set new password
 4. Update `.env` file with new password:
-   ```env
-   MONGODB_URI=mongodb+srv://admin:NEW_PASSWORD@cluster0.m5ycvuo.mongodb.net/bose_db?retryWrites=true&w=majority&appName=Cluster0
-   ```
+
 
 ### Option 3: Test Connection with MongoDB Compass
 
