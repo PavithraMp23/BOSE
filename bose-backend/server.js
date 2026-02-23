@@ -220,9 +220,8 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
 // Routes
-const certificateRoutes = require('./routes/certificate-routes');
-const skillRoutes = require('./routes/skill-routes');
-const adminRoutes = require('./routes/admin-routes');
+// Routes
+// Imported via index.js now
 
 dotenv.config();
 connectDB();
@@ -236,15 +235,12 @@ app.use(cors());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
-// Routes
-app.use('/api/certificate', certificateRoutes);
-app.use('/api/skill', skillRoutes);
-app.use('/api/admin', adminRoutes);
+app.use('/api', require('./routes/index'));
 
 // Health check (optional but useful)
 app.get('/health', (_, res) => res.json({ status: 'OK' }));
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-  console.log(`BOSE Backend running on port ${PORT}`);
+    console.log(`BOSE Backend running on port ${PORT}`);
 });

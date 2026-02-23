@@ -1,6 +1,6 @@
 // controllers/skill.controller.js
 const { addSkill, querySkill } = require('../../bose-client/app');
-const { identityService } = require('../../bose-client');
+const { identityService } = require('../../bose-client/services/identity-services');
 
 exports.addSkill = async (req, res) => {
   try {

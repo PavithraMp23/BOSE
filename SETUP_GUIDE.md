@@ -341,6 +341,34 @@ curl http://localhost:3002/api/certificate/CERT_student_001_1705513800000?identi
 
 ---
 
+---
+
+## **Step 8: Setup and Run Frontend**
+
+The frontend is a React application built with Vite.
+
+```bash
+cd /home/pavithra/BOSE/bose-frontend
+
+# Install dependencies (only need to do this once)
+npm install
+
+# Run the development server
+npm run dev
+```
+
+**Expected Output:**
+```
+  VITE v5.x.x  ready in 300 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+```
+
+Frontend is now running at: `http://localhost:5173`
+
+---
+
 ## **Troubleshooting**
 
 ### **MongoDB Connection Error**
@@ -421,5 +449,6 @@ FABRIC_CONNECTION_PROFILE=../fabric-samples/test-network/organizations/peerOrgan
 | 3 | `mongod` | Start database |
 | 4 | `npm start` | Start backend server |
 | 5 | API calls | Upload/Verify/Query certificates & skills |
+| 6 | `npm run dev` | Start frontend application (in `bose-frontend`) |
 
 **Your BOSE system is now ready to run!**
